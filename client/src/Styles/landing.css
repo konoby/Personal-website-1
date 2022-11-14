@@ -1,0 +1,125 @@
+html{
+    scroll-behavior: smooth;
+}
+body{
+    overflow: hidden;
+}
+.container {
+    line-height: 1.6;
+    
+    /* CSS Smooth Scroll */
+    background-color: antiquewhite;
+    overflow-y: scroll; 
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+  }
+section{
+    overflow: hidden;
+    min-height: 100vh;
+     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Scroll Snap */
+    scroll-snap-align: center;
+}
+section#sec-1,section#sec-2{
+    background-color: white;
+}
+.title {
+    font-family: Lucidatypewriter;
+    font-size: 200px;
+    animation-duration: 3s;
+    animation-name: fadein;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fadein{
+    0%{
+        color:aliceblue;
+    }
+    80%{
+        font-size: 220px;
+    }
+    100%{
+        color:black;
+    }
+}
+.abstract-css {
+    font-family: Lucidatypewriter;
+    font-size: 30px;
+    color: white;
+    animation-duration: 3s;
+    animation-name: fadein-ab;
+    animation-fill-mode: forwards;
+    animation-delay: 3s;
+}
+
+@keyframes fadein-ab{
+    
+    50%{
+        color:aliceblue;
+    }
+    100%{
+        color:black;
+        
+    }
+}
+
+
+
+.scroll-down{
+    height: 80px;
+    width: 40px;
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.scroll-down::before,
+.scroll-down::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  height: 20px;
+  width: 20px;
+  transform: translate(-50%, -100%) rotate(45deg);
+  border: 8px solid black;
+  border-top: transparent;
+  border-left: transparent;
+  animation: scroll-down 1s ease-in-out infinite, still 7s linear;
+  
+}
+.scroll-down::before{
+    top: 30%;
+    animation-delay: 0.3s;
+}
+@keyframes still{
+ from{
+    opacity: 0;
+ }
+ to{
+    opacity: 0;
+ }
+}
+@keyframes scroll-down {
+    0% {
+      /* top:20%; */
+      opacity: 0;
+    }
+    30% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+    }
+    100% {
+      top: 90%;
+      opacity: 0;
+    }
+  }
+  

@@ -13,7 +13,7 @@ body{
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
   }
-section{
+ /* section{
     overflow: hidden;
     min-height: 100vh;
      width: 100%;
@@ -22,10 +22,25 @@ section{
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* Scroll Snap */
+  
     scroll-snap-align: center;
+ } */
+section{
+        overflow: hidden;
+        min-height: 100vh;
+         width: 100%;
+        display: flex;
+        flex-direction: column;
 }
-section#sec-1,section#sec-2{
+section#sec-1{
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  
+    scroll-snap-align: center;
+} 
+section#sec-2{
     background-color: white;
 }
 .title {

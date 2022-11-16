@@ -1,7 +1,7 @@
 import './App.css';
 import YJQ from './Components/YJQ';
 import Intro from './Components/abstract';
-import Tree from './Components/Tree';
+import Navbar from './Components/Nav';
 function App() {
   return (
     <div class="container">
@@ -21,7 +21,8 @@ function App() {
         </a>
         </section>
         <section id = "sec-2">
-         <Tree></Tree>
+          <Navbar/>
+         
         </section>
       </div>
   );

@@ -1,0 +1,10 @@
+.beginbut{
+    position: relative;
+    top: 120px;
+    left: 30px;
+}
+.endbut{
+    position: absolute;
+    top: 120px;
+    left: 35vh
+}

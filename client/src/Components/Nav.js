@@ -11,7 +11,7 @@ class Navbar extends React.Component{
             current_bar: 1
         };
     };
-    clickalgo (){this.setState({current_bar: 1});
+clickalgo (){this.setState({current_bar: 1});
 }
 clickres (){this.setState({current_bar: 2});
 }

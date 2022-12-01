@@ -95,7 +95,7 @@ section#sec-2{
     cursor: pointer;
 }
 .scroll-down::before,
-.scroll-down::after {
+.scroll-down::after { 
   content: "";
   position: absolute;
   top: 20%;

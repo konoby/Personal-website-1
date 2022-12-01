@@ -1,0 +1,26 @@
+.grid-container{
+    
+    height: 800px;
+    width:800px;
+    overflow: hidden;
+    position:relattive;
+    left:300%;
+   /* bottom:40% */
+}
+
+.input-box{
+    display: inline-block;
+    border: 3px solid;
+    width: 30px;
+    height:30px;
+    
+    position: relative;
+    
+    left:40%;
+    top:10%  
+
+}
+
+.input-box::before{
+    content:"aaasds";
+}

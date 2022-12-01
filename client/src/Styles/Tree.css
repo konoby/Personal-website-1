@@ -1,3 +1,19 @@
+.algo-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.tree-container{
+    
+    height: 800px;
+    width:800px;
+    overflow: hidden;
+    position:relative;
+    
+    /* bottom:40%;  */
+}
+
+
+
 .Root {
     justify-content: center;
     text-align: center;
@@ -7,40 +23,50 @@
     border: 8px solid;
     margin: 4px;
     border-radius: 50%;
-    position: absolute;
-    left:60%;
-    top:120%
+    position: relative;
+    left:400px;
+    top:200px;
+    /* opacity:0; */
 }
-.Node2 {
-    align-items: center;
+.Rtext{
+    
+}
+.Node1 {
     justify-content: center;
     text-align: center;
     font: 3em sans-serif;
     height: 60px;
     width: 60px;
-    border: 8px solid;
-    margin: 4px;
+    
+    border: 8px  solid;
     border-radius: 50%;
-    position: absolute;
-    left:55.5%;
-    top: 131.5%;
+    position: relative;
+    left:330px;
+    top: 240px;
+    /* opacity:0; */
 }
 
-.Node2::before{
+.Node1::before{
     content:'';
     display:block;
-    width:80px;
-    height:80px;
-    border: 8px solid;
+    width:1.7em;
+    height:0.9em;
+    border: 0.175em  solid;
     transform: rotate(-45deg);
     border-top: transparent;
     border-left: transparent;
     border-right: transparent;
     position: relative;
-    bottom: 103px;
-    right:2px;
+    bottom: 1.55em;
+    right:-.1em;
+    
 }
-.Node3 {
+.text1{
+
+position:relative;
+bottom:50px
+}
+.Node2 {
     justify-content: center;
     text-align: center;
     font: 3em sans-serif;
@@ -49,12 +75,13 @@
     border: 8px solid;
     margin: 4px;
     border-radius: 50%;
-    position: absolute;
-    left:65.5%;
-    top: 131.5%;
+    position: relative;
+    left:490px;
+    top: 160px;
+    /* opacity:0; */
 }
 
-.Node3::before{
+.Node2::before{
     content:'';
     display:block;
     width:80px;
@@ -67,9 +94,14 @@
     position: relative;
     bottom: 103px;
     right:28px;
+    
 }
-
-.Node4 {
+.text2{
+    
+    position:relative;
+    bottom:90px
+    }
+.Node3 {
     justify-content: center;
     text-align: center;
     font: 3em sans-serif;
@@ -79,11 +111,16 @@
     margin: 4px;
     border-radius: 50%;
     position: absolute;
-    left:48%;
-    top: 143%;
+    left:200px;
+    top: 460px;
+    /* opacity:0; */
 }
-
-.Node4::before{
+.text3{
+    
+    position:relative;
+    bottom:86px
+    }
+.Node3::before{
     content:'';
     display:block;
     width:120px;
@@ -94,24 +131,24 @@
     border-left: transparent;
     border-right: transparent;
     position: relative;
-    bottom: 111px;
-    right:-4px;
+    bottom: 113px;
+    right:-1px;
 }
-.Node7 {
-    justify-content: center;
-    text-align: center;
+.Node6 {
+  
     font: 3em sans-serif;
     height: 60px;
     width: 60px;
     border: 8px solid;
     margin: 4px;
     border-radius: 50%;
-    position: absolute;
-    left:73%;
-    top: 143%;
+    position: relative;
+    left:616px;
+    top: 200px;
+    /* opacity:0; */
 }
 
-.Node7::before{
+.Node6::before{
     content:'';
     display:block;
     width:120px;
@@ -125,7 +162,14 @@
     bottom: 111px;
     right:67px;
 }
-.Node5 {
+
+.text6{
+    
+    position:relative;
+    bottom:86px;
+    left:17px
+    }
+.Node4 {
     align-content: center;
     justify-content: center;
     text-align: center;
@@ -136,11 +180,12 @@
     margin: 4px;
     border-radius: 50%;
     position: absolute;
-    left:58%;
-    top: 143%;
+    left:370px;
+    top: 460px;
+    /* opacity:0; */
 }
 
-.Node5::before{
+.Node4::before{
     content:'';
     display:block;
     width:60px;
@@ -154,8 +199,12 @@
     bottom: 90px;
     right:-4px;
 }
-
-.Node6 {
+.text4{
+    
+    position:relative;
+    bottom:86px
+    }
+.Node5 {
     align-content: center;
     justify-content: center;
     text-align: center;
@@ -166,11 +215,12 @@
     margin: 4px;
     border-radius: 50%;
     position: absolute;
-    left:63%;
-    top: 143%;
+    left:439px;
+    bottom: 253px;
+    /* opacity:0; */
 }
 
-.Node6::before{
+.Node5::before{
     content:'';
     display:block;
     width:60px;
@@ -183,4 +233,116 @@
     position: relative;
     bottom: 90px;
     right:4px;
+}
+.text5{
+    
+    position:relative;
+    bottom:86px
+    }
+.insert {
+    animation-name: inserted;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+
+}
+@keyframes inserted{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+        
+    }
+}
+.node-text{
+    color:black;
+    position:relative;
+    top:6px;
+
+
+}
+.text-identify{
+    animation-name: identify;
+    animation-duration: 0.5s;
+    /* animation-fill-mode: forwards; */
+    animation-iteration-count: 2;
+}
+@keyframes identify {
+    from{
+        color:red;
+        opacity: 1;
+    }
+    to{
+        color:red;
+        opacity: 0;
+    }
+}
+.text-swap{
+    animation-name: swap;
+    animation-duration: 1s;
+}
+
+@keyframes swap{
+    0%{
+        color: red;
+    }
+    50%{
+        color: red;
+        transform: rotateX(180deg);
+        
+    }
+    100%{
+        transform: rotateX(360deg);
+    }
+}
+.text-preidentify{
+    animation-name: preidentify;
+    animation-duration: 0.5s;
+    /* animation-fill-mode: forwards; */
+    animation-iteration-count: 2;
+}
+@keyframes preidentify {
+    from{
+        color:green;
+        opacity: 1;
+    }
+    to{
+        color:green;
+        opacity: 0;
+    }
+}
+.text-delete{
+    animation-name: t-delete;
+    animation-duration: 1s;
+}
+@keyframes t-delete{
+    0%{
+        color: green;
+    }
+    50%{
+        color: green;
+        transform: rotateX(180deg);
+        
+    }
+    100%{
+        transform: rotateX(360deg);
+    }
+}
+.node-delete{
+    animation-name: delete;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes delete{
+    0%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+        
+    }
+    
 }

@@ -52,9 +52,8 @@ class MaxHeap{
 function heapSort(arr){
     var sorted = [];
     var heap1 = new MaxHeap();
-    
-    for(let i=0; i<arr.length; i++){
-        setTimeout(() => heap1.insert(i),1000)
+    for(var i=0; i<arr.length; i++){
+        heap1.insert(arr[i])
 
     }
     

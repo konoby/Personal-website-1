@@ -9,6 +9,7 @@ function Node(props){
     const cssidt=props.cssidt;
     const graphnumber = props.number;
     const textnumber = "t"+graphnumber;
+    
     return(
         
         <div  id ={graphnumber} class={cssid}>
@@ -27,6 +28,7 @@ class Tree extends React.Component{
         this.clickbegin = this.clickbegin.bind(this);
          this.clickend = this.clickend.bind(this);
          
+       this.myform = null;
         this.state = {
             n0 : 0,
             n1 : 0,
@@ -41,10 +43,16 @@ class Tree extends React.Component{
       const flow = MaxHeap([8,2,1,3,5,10,9]);
       this.animatetree(flow)
     }
-   clickend(){
-    
+    clickend(){
     window.location.reload(false);
-}
+    }
+    
+    componentDidMount(){
+        const myform = document.getElementById("inputs");
+        myform.addEventListener("input",()=>{
+            console.log("hola")
+        });
+    }
     animatetree(flow){
         var accumulated_time = 0;
         for (let i = 0; i <= flow.length -1; i++) {
@@ -144,14 +152,17 @@ class Tree extends React.Component{
         class_name;
 
     }
+    
+  
     render() {
-        
+       
         return (
             
           <div class='algo-container'>
-            <div class = 'grid-container'>
-            <input class ="input-box"></input>
-            </div>
+            <form  id='inputs' class = 'grid-container'>
+           
+            <input  class ="input-box"></input><input class ="input-box"></input><input class ="input-box"></input><input class ="input-box"></input><input class ="input-box"></input><input class ="input-box"></input><input class ="input-box"></input>
+            </form>
             <div class= 'tree-container'>
             <button class='beginbut' onClick={this.clickbegin}>Start</button>
             <button class='endbut' onClick={this.clickend}>Clear</button>

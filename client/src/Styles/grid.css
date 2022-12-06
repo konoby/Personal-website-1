@@ -9,6 +9,7 @@
 }
 
 .input-box{
+  color:red;
     display: inline-block;
     text-align: center;
     font-size: 30px;

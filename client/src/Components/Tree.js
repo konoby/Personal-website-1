@@ -27,7 +27,7 @@ class Tree extends React.Component{
         super(props);
         this.clickbegin = this.clickbegin.bind(this);
          this.clickend = this.clickend.bind(this);
-         
+         this.validation = this.validation.bind(this);
        this.myform = null;
         this.state = {
             n0 : 0,
@@ -36,7 +36,8 @@ class Tree extends React.Component{
             n3 : 0,
             n4 : 0,
             n5 : 0,
-            n6 : 0
+            n6 : 0,
+            correct: true
         }
     }
     clickbegin(){
@@ -46,12 +47,45 @@ class Tree extends React.Component{
     clickend(){
     window.location.reload(false);
     }
-    
+    iscorrect(id,num){
+        // console.log(typeof num)
+        if (typeof num == 'number' && num<100 && num > 0&&typeof num!==undefined){
+            document.getElementById(id).style.color = 'black'
+        return true}
+        else {
+            document.getElementById(id).style.color = 'red'
+            return false}
+    }
+    validation(){
+        let v0= document.getElementById('v0').value;
+        let v1= document.getElementById('v1').value;
+        let v2= document.getElementById('v2').value;
+        let v3= document.getElementById('v3').value;
+        let v4= document.getElementById('v4').value;
+        let v5= document.getElementById('v5').value;
+        let v6= document.getElementById('v6').value;
+        let bool0 = this.iscorrect('v0',Number(v0))
+        let bool1 = this.iscorrect('v1',Number(v1))
+        let bool2 = this.iscorrect('v2',Number(v2))
+        let bool3 = this.iscorrect('v3',Number(v3))
+        let bool4 = this.iscorrect('v4',Number(v4))
+        let bool5 = this.iscorrect('v5',Number(v5))
+        let bool6 = this.iscorrect('v6',Number(v6))
+        if((bool0&&bool1&&bool2&&bool3&&bool4&&bool5&&bool6)===false){
+            this.setState({correct: false});
+            
+        }
+        else{this.setState({correct: true});
+    }
+        console.log(v0,v1,v2,v3,v4,v5,v6)
+       
+    }
     componentDidMount(){
+        
         const myform = document.getElementById("inputs");
         myform.addEventListener("input",()=>{
-            console.log("hola")
-        });
+            this.validation()}
+        );
     }
     animatetree(flow){
         var accumulated_time = 0;
@@ -96,6 +130,7 @@ class Tree extends React.Component{
         
         document.getElementById(`${pos}`).className =
           class_name;
+        
         
     }
 
@@ -155,13 +190,13 @@ class Tree extends React.Component{
     
   
     render() {
-       
+        console.log(this.state)
         return (
             
           <div class='algo-container'>
             <form  id='inputs' class = 'grid-container'>
-           
-            <input  class ="input-box"></input><input class ="input-box"></input><input class ="input-box"></input><input class ="input-box"></input><input class ="input-box"></input><input class ="input-box"></input><input class ="input-box"></input>
+            
+           <input  id='v0' class ="input-box"></input><  input  id='v1' class ="input-box"></input><input  id='v2' class ="input-box"></input><input  id='v3' class ="input-box"></input><input id='v4' class ="input-box"></input><input id='v5' class ="input-box"></input><input id='v6' class ="input-box"></input>
             </form>
             <div class= 'tree-container'>
             <button class='beginbut' onClick={this.clickbegin}>Start</button>

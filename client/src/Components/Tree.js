@@ -2,6 +2,7 @@ import React from "react";
 import '../Styles/Tree.css'
 import '../Styles/startbutton.css'
 import '../Styles/grid.css'
+import '../Styles/alert.css'
 import {MaxHeap} from './Heapsort'
 function Node(props){
     const value = props.value;
@@ -19,7 +20,11 @@ function Node(props){
         
     );
 }
-
+function Alert(props){
+    return(
+ <div class='alert'>PLZ input 6 numbers between 0 and 100</div>
+    );
+}
 
 
 class Tree extends React.Component{
@@ -37,19 +42,27 @@ class Tree extends React.Component{
             n4 : 0,
             n5 : 0,
             n6 : 0,
-            correct: true
+            correct: false
         }
     }
     clickbegin(){
-      const flow = MaxHeap([8,2,1,3,5,10,9]);
-      this.animatetree(flow)
+        if(this.state.correct === true){
+        let v0= document.getElementById('v0').value;
+        let v1= document.getElementById('v1').value;
+        let v2= document.getElementById('v2').value;
+        let v3= document.getElementById('v3').value;
+        let v4= document.getElementById('v4').value;
+        let v5= document.getElementById('v5').value;
+        let v6= document.getElementById('v6').value;
+      const flow = MaxHeap([Number(v0),Number(v1),Number(v2),Number(v3),Number(v4),Number(v5),Number(v6)]);
+      this.animatetree(flow)}
     }
     clickend(){
     window.location.reload(false);
     }
     iscorrect(id,num){
         // console.log(typeof num)
-        if (typeof num == 'number' && num<100 && num > 0&&typeof num!==undefined){
+        if (typeof num == 'number' && num<100 && num > 0){
             document.getElementById(id).style.color = 'black'
         return true}
         else {
@@ -190,13 +203,15 @@ class Tree extends React.Component{
     
   
     render() {
-        console.log(this.state)
+        const flag=!this.state.correct
+        console.log(typeof flag,flag)
         return (
             
           <div class='algo-container'>
-            <form  id='inputs' class = 'grid-container'>
             
-           <input  id='v0' class ="input-box"></input><  input  id='v1' class ="input-box"></input><input  id='v2' class ="input-box"></input><input  id='v3' class ="input-box"></input><input id='v4' class ="input-box"></input><input id='v5' class ="input-box"></input><input id='v6' class ="input-box"></input>
+            <form  id='inputs' class = 'grid-container'>
+            {flag&&<Alert/>}
+            <input  id='v0' class ="input-box"></input><  input  id='v1' class ="input-box"></input><input  id='v2' class ="input-box"></input><input  id='v3' class ="input-box"></input><input id='v4' class ="input-box"></input><input id='v5' class ="input-box"></input><input id='v6' class ="input-box"></input>
             </form>
             <div class= 'tree-container'>
             <button class='beginbut' onClick={this.clickbegin}>Start</button>

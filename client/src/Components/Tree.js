@@ -25,6 +25,22 @@ function Alert(props){
  <div class='alert'>PLZ input 6 numbers between 0 and 100</div>
     );
 }
+function Box(props){
+    const value = props.value;
+    const cssid = props.cssid;
+    const cssidt=props.cssidt;
+    const boxnumber = props.number;
+    const textnumber = "t"+boxnumber;
+    
+    return(
+        
+        <div  id ={boxnumber} class={cssid}>
+           <div id = {textnumber} class = {cssidt}> {value}</div>
+        </div>
+        
+        
+    );
+}
 
 
 class Tree extends React.Component{
@@ -46,16 +62,19 @@ class Tree extends React.Component{
         }
     }
     clickbegin(){
-        if(this.state.correct === true){
-        let v0= document.getElementById('v0').value;
-        let v1= document.getElementById('v1').value;
-        let v2= document.getElementById('v2').value;
-        let v3= document.getElementById('v3').value;
-        let v4= document.getElementById('v4').value;
-        let v5= document.getElementById('v5').value;
-        let v6= document.getElementById('v6').value;
-      const flow = MaxHeap([Number(v0),Number(v1),Number(v2),Number(v3),Number(v4),Number(v5),Number(v6)]);
-      this.animatetree(flow)}
+    //     if(this.state.correct === true){
+    //     let v0= document.getElementById('v0').value;
+    //     let v1= document.getElementById('v1').value;
+    //     let v2= document.getElementById('v2').value;
+    //     let v3= document.getElementById('v3').value;
+    //     let v4= document.getElementById('v4').value;
+    //     let v5= document.getElementById('v5').value;
+    //     let v6= document.getElementById('v6').value;
+    //   const flow = MaxHeap([Number(v0),Number(v1),Number(v2),Number(v3),Number(v4),Number(v5),Number(v6)]);
+      
+    //   this.animatetree(flow)}
+      const flow = MaxHeap([8,5,1,6,2,7,2]);
+      this.animatetree(flow)
     }
     clickend(){
     window.location.reload(false);
@@ -135,6 +154,7 @@ class Tree extends React.Component{
     }
     insert(pos,val){
         const id = pos === 0? 'n0': pos === 1? 'n1':pos === 2? 'n2':pos === 3? 'n3':pos === 4? 'n4':pos === 5? 'n5':'n6';
+        const bpos = 'b' + pos;
         const temp = {}
         const class_name = pos === 0? 'Root insert': pos === 1? 'Node1 insert':pos === 2? 'Node2 insert':pos === 3? 'Node3 insert':pos === 4? 'Node4 insert':pos === 5? 'Node5 insert':'Node6 insert';
         temp[id] = val[0]
@@ -143,7 +163,8 @@ class Tree extends React.Component{
         
         document.getElementById(`${pos}`).className =
           class_name;
-        
+        document.getElementById(bpos).className =
+         'Head insert';
         
     }
 
@@ -153,7 +174,11 @@ class Tree extends React.Component{
         document.getElementById(`t${pos1}`).className =
         classid1;
         document.getElementById(`t${pos2}`).className =
-        classid2;}
+        classid2; 
+        
+        document.getElementById(`tb${pos1}`).className = 'Btext text-identify';
+        document.getElementById(`tb${pos2}`).className = 'Btext text-identify';
+    }
 
     swap(pos1,pos2,val1,val2){
         const id1 = pos1 === 0? 'n0': pos1 === 1? 'n1':pos1 === 2? 'n2':pos1 === 3? 'n3':pos1 === 4? 'n4':pos1 === 5? 'n5':'n6';
@@ -171,6 +196,8 @@ class Tree extends React.Component{
         classid1;
         document.getElementById(`t${pos2}`).className =
         classid2;
+        document.getElementById(`tb${pos1}`).className = 'Btext text-swap';
+        document.getElementById(`tb${pos2}`).className = 'Btext text-swap';
       
     }
     preidentify(pos1,pos2){
@@ -179,7 +206,10 @@ class Tree extends React.Component{
         document.getElementById(`t${pos1}`).className =
         classid1;
         document.getElementById(`t${pos2}`).className =
-        classid2;}
+        classid2;
+        document.getElementById(`tb${pos1}`).className = 'Btext text-preidentify';
+        document.getElementById(`tb${pos2}`).className = 'Btext text-preidentify';
+    }
     predelete(pos1,pos2,val1,val2){
         const classid1 = pos1 === 0? 'Rtext text-delete': pos1 === 1? 'text1 text-delete': pos1 === 2? 'text2 text-delete':pos1 === 3? 'text3 text-delete': pos1 === 4? 'text4 text-delete': pos1 === 5? 'text5 text-delete':'text6 text-delete';
         const classid2 = pos2 === 0? 'Rtext text-delete': pos2 === 1? 'text1 text-delete': pos2 === 2? 'text2 text-delete':pos2 === 3? 'text3 text-delete': pos2 === 4? 'text4 text-delete': pos2 === 5? 'text5 text-delete':'text6 text-delete';
@@ -193,18 +223,22 @@ class Tree extends React.Component{
         classid1;
         document.getElementById(`t${pos2}`).className =
         classid2;
+        document.getElementById(`tb${pos1}`).className = 'Btext text-delete';
+        document.getElementById(`tb${pos2}`).className = 'Btext text-delete';
     }
     delete(pos1,pos2,val1,val2){
         const class_name = pos2 === 0? 'Root node-delete': pos2 === 1? 'Node1 node-delete':pos2 === 2? 'Node2 node-delete':pos2 === 3? 'Node3 node-delete':pos2 === 4? 'Node4 node-delete':pos2 === 5? 'Node5 node-delete':'Node6 node-delete';
         document.getElementById(`${pos2}`).className =
         class_name;
+        document.getElementById(`b${pos2}`).style.color='green';
+        
 
     }
     
   
     render() {
         const flag=!this.state.correct
-        console.log(typeof flag,flag)
+        
         return (
             
           <div class='algo-container'>
@@ -212,6 +246,8 @@ class Tree extends React.Component{
             <form  id='inputs' class = 'grid-container'>
             {flag&&<Alert/>}
             <input  id='v0' class ="input-box"></input><  input  id='v1' class ="input-box"></input><input  id='v2' class ="input-box"></input><input  id='v3' class ="input-box"></input><input id='v4' class ="input-box"></input><input id='v5' class ="input-box"></input><input id='v6' class ="input-box"></input>
+            <div class = 'cursor-container'><div class = 'pointer'></div></div>
+            <div class='box-container'><Box  number='b0' value={this.state.n0} cssid="Head" cssidt='Btext'/><Box  number='b1' value={this.state.n1} cssid="Head" cssidt='Btext'/><Box  number='b2' value={this.state.n2} cssid="Head" cssidt='Btext'/><Box  number='b3' value={this.state.n3} cssid="Head" cssidt='Btext'/><Box  number='b4' value={this.state.n4} cssid="Head" cssidt='Btext'/><Box  number='b5' value={this.state.n5} cssid="Head" cssidt='Btext'/><Box  number='b6' value={this.state.n6} cssid="Head" cssidt='Btext'/></div>
             </form>
             <div class= 'tree-container'>
             <button class='beginbut' onClick={this.clickbegin}>Start</button>

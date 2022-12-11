@@ -20,6 +20,17 @@ function Node(props){
         
     );
 }
+function startbut(props){
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+         <defs>
+            <linearGradient id="GradientColor">
+               <stop offset="0%" stop-color="#e91e63" />
+               <stop offset="100%" stop-color="#673ab7" />
+            </linearGradient>
+         </defs>
+         <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+ </svg>
+}
 function Alert(props){
     return(
  <div class='alert'>PLZ input 6 numbers between 0 and 100</div>
@@ -58,23 +69,23 @@ class Tree extends React.Component{
             n4 : 0,
             n5 : 0,
             n6 : 0,
-            correct: false
+            correct: false,
+            
         }
     }
     clickbegin(){
-    //     if(this.state.correct === true){
-    //     let v0= document.getElementById('v0').value;
-    //     let v1= document.getElementById('v1').value;
-    //     let v2= document.getElementById('v2').value;
-    //     let v3= document.getElementById('v3').value;
-    //     let v4= document.getElementById('v4').value;
-    //     let v5= document.getElementById('v5').value;
-    //     let v6= document.getElementById('v6').value;
-    //   const flow = MaxHeap([Number(v0),Number(v1),Number(v2),Number(v3),Number(v4),Number(v5),Number(v6)]);
+        if(this.state.correct === true){
+        let v0= document.getElementById('v0').value;
+        let v1= document.getElementById('v1').value;
+        let v2= document.getElementById('v2').value;
+        let v3= document.getElementById('v3').value;
+        let v4= document.getElementById('v4').value;
+        let v5= document.getElementById('v5').value;
+        let v6= document.getElementById('v6').value;
+      const flow = MaxHeap([Number(v0),Number(v1),Number(v2),Number(v3),Number(v4),Number(v5),Number(v6)]);
       
-    //   this.animatetree(flow)}
-      const flow = MaxHeap([8,5,1,6,2,7,2]);
-      this.animatetree(flow)
+      this.animatetree(flow)}
+     
     }
     clickend(){
     window.location.reload(false);
@@ -242,8 +253,10 @@ class Tree extends React.Component{
         return (
             
           <div class='algo-container'>
-            
             <form  id='inputs' class = 'grid-container'>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+         <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+ </svg>
             {flag&&<Alert/>}
             <input  id='v0' class ="input-box"></input><  input  id='v1' class ="input-box"></input><input  id='v2' class ="input-box"></input><input  id='v3' class ="input-box"></input><input id='v4' class ="input-box"></input><input id='v5' class ="input-box"></input><input id='v6' class ="input-box"></input>
             <div class = 'cursor-container'><div class = 'pointer'></div></div>

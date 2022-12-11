@@ -27,18 +27,7 @@
     top:30%  
 
 }
-.input-box::after{
-  content: "";
-  position: relative;
-  top: 1px;
-  height: 20px;
-  width: 20px;
-  transform: translate(-50%, -100%) rotate(45deg);
-  border: 8px solid rgb(205, 21, 21);
-  border-top: transparent;
-  border-left: transparent;
-  animation: input-scroll-down 1s ease-in-out infinite
-}
+
 @keyframes input-scroll-down {
   0% {
     /* top:20%; */
@@ -100,23 +89,45 @@
   }
 }
 .Head {
+  color:black;
   display: inline-block;
-  justify-content: center;
   text-align: center;
-  font: 3em sans-serif;
-  padding: 4px;
-  height: 40px;
-  width: 40px;
-  border: 3px solid;
-  margin: 4px;
-  border-top: transparent;
-  border-left: transparent;
-  border-right: transparent;
+  font-size: 30px;
+  border: 4px solid;
+  width: 46px;
+  height:40px;
+  margin: 3px;
+  font-family: Lucidatypewriter;
   position: relative;
+  border-top: transparent;
+border-left: transparent;
+border-right: transparent;
   left:39%;
   
   /* opacity:0; */
 }
 .Btext{
 
+}
+circle{
+  fill:none;
+  stroke:black;
+  stroke-width: 5px;
+  stroke-dasharray: 472;
+  stroke-dashoffset:472;
+  animation: anim 3s ease-in-out infinite;
+  
+}
+@keyframes anim{
+  50%{
+    stroke-dashoffset: 0;
+  }
+ 100%{
+  stroke-dashoffset:-472;
+ }
+}
+svg{
+  position: relative;
+  top:20%;
+  left: 50%;
 }

@@ -62,4 +62,3 @@ function swap(heap,a, b, flow) {
     
 }   
 
-console.log(MaxHeap([8,2,1,3,5,10,9]))

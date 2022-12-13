@@ -55,6 +55,7 @@ class Tree extends React.Component{
         this.clickbegin = this.clickbegin.bind(this);
          this.clickend = this.clickend.bind(this);
          this.validation = this.validation.bind(this);
+         
        this.myform = null;
         this.state = {
             n0 : 0,
@@ -69,6 +70,7 @@ class Tree extends React.Component{
             runing: false
         }
     }
+   
     clickbegin(){
         if(this.state.correct === true){
         let v0= document.getElementById('v0').value;
@@ -79,8 +81,11 @@ class Tree extends React.Component{
         let v5= document.getElementById('v5').value;
         let v6= document.getElementById('v6').value;
       const flow = MaxHeap([Number(v0),Number(v1),Number(v2),Number(v3),Number(v4),Number(v5),Number(v6)]);
+      this.setState({runing:true})
+        document.getElementById('btn').innerHTML='RUNING'
       console.log("click")
       this.animatetree(flow)}
+      
      
     }
     clickend(){
@@ -116,6 +121,8 @@ class Tree extends React.Component{
             
         }
         else{this.setState({correct: true});
+        document.getElementById('pointer').style.opacity='0'
+        document.getElementById('btn').style.color='black'
         
     }
         
@@ -129,6 +136,7 @@ class Tree extends React.Component{
         );
     }
     animatetree(flow){
+        
         var accumulated_time = 0;
         for (let i = 0; i <= flow.length -1; i++) {
             const position = flow[i].pos;
@@ -154,13 +162,10 @@ class Tree extends React.Component{
                 accumulated_time += 1000
                 setTimeout(()=>{this.delete(position[0],position[1],value[0],value[1])},accumulated_time)
             }
-            // setTimeout(() => {
-            //     const node = flow[i];
-            //     document.getElementById(`${position}`).className =
-            //       'node${position}';
-            //   }, 10 * i);
          }
-         this.setState({runing:true})
+         
+         document.getElementById('btn').innerHTML='CLEAR'
+         
     }
     insert(pos,val){
         const id = pos === 0? 'n0': pos === 1? 'n1':pos === 2? 'n2':pos === 3? 'n3':pos === 4? 'n4':pos === 5? 'n5':'n6';
@@ -254,13 +259,13 @@ class Tree extends React.Component{
             
           <div class='algo-container'>
             <form  id='inputs' class = 'grid-container'>
-            <button class = 'inner' onClick={this.clickbegin}>START</button><svg onClick={this.clickbegin} xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+            <button id = 'btn' class = 'inner' onClick={clickfunc}>START</button><svg onClick={clickfunc}  xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
          <circle cx="80" cy="80" r="70" stroke-linecap="round" />
  </svg>
             {flag&&<Alert/>}
             {!flag&&<Success/>}
             <input  id='v0' class ="input-box"></input><  input  id='v1' class ="input-box"></input><input  id='v2' class ="input-box"></input><input  id='v3' class ="input-box"></input><input id='v4' class ="input-box"></input><input id='v5' class ="input-box"></input><input id='v6' class ="input-box"></input>
-            <div class = 'cursor-container'><div class = 'pointer'></div></div>
+            <div class = 'cursor-container'><div id='pointer' class = 'pointer'></div></div>
             <div class='box-container'><Box  number='b0' value={this.state.n0} cssid="Head" cssidt='Btext'/><Box  number='b1' value={this.state.n1} cssid="Head" cssidt='Btext'/><Box  number='b2' value={this.state.n2} cssid="Head" cssidt='Btext'/><Box  number='b3' value={this.state.n3} cssid="Head" cssidt='Btext'/><Box  number='b4' value={this.state.n4} cssid="Head" cssidt='Btext'/><Box  number='b5' value={this.state.n5} cssid="Head" cssidt='Btext'/><Box  number='b6' value={this.state.n6} cssid="Head" cssidt='Btext'/></div>
             </form>
             <div class= 'tree-container'>

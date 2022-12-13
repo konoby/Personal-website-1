@@ -118,6 +118,9 @@ circle{
   animation: anim 3s ease-in-out infinite;
   
 }
+svg:hover circle{
+  animation-play-state: paused;
+}
 @keyframes anim{
   50%{
     stroke-dashoffset: 0;
@@ -145,4 +148,5 @@ display: inline-block;
  top:11%;
   left: 50%;
   background-color: white;
+  box-shadow: 0px 0px 20px black;
 }

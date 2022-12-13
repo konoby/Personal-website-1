@@ -20,20 +20,15 @@ function Node(props){
         
     );
 }
-function startbut(props){
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
-         <defs>
-            <linearGradient id="GradientColor">
-               <stop offset="0%" stop-color="#e91e63" />
-               <stop offset="100%" stop-color="#673ab7" />
-            </linearGradient>
-         </defs>
-         <circle cx="80" cy="80" r="70" stroke-linecap="round" />
- </svg>
-}
+
 function Alert(props){
     return(
  <div class='alert'>PLZ input 6 numbers between 0 and 100</div>
+    );
+}
+function Success(props){
+    return(
+ <div class='success'>Now press the start button</div>
     );
 }
 function Box(props){
@@ -71,6 +66,7 @@ class Tree extends React.Component{
             n6 : 0,
             correct: false,
             
+            runing: false
         }
     }
     clickbegin(){
@@ -83,12 +79,13 @@ class Tree extends React.Component{
         let v5= document.getElementById('v5').value;
         let v6= document.getElementById('v6').value;
       const flow = MaxHeap([Number(v0),Number(v1),Number(v2),Number(v3),Number(v4),Number(v5),Number(v6)]);
-      
+      console.log("click")
       this.animatetree(flow)}
      
     }
     clickend(){
     window.location.reload(false);
+    this.setState({runing:false})
     }
     iscorrect(id,num){
         // console.log(typeof num)
@@ -119,8 +116,9 @@ class Tree extends React.Component{
             
         }
         else{this.setState({correct: true});
+        
     }
-        console.log(v0,v1,v2,v3,v4,v5,v6)
+        
        
     }
     componentDidMount(){
@@ -162,6 +160,7 @@ class Tree extends React.Component{
             //       'node${position}';
             //   }, 10 * i);
          }
+         this.setState({runing:true})
     }
     insert(pos,val){
         const id = pos === 0? 'n0': pos === 1? 'n1':pos === 2? 'n2':pos === 3? 'n3':pos === 4? 'n4':pos === 5? 'n5':'n6';
@@ -249,22 +248,23 @@ class Tree extends React.Component{
   
     render() {
         const flag=!this.state.correct
-        
+        const clickfunc = this.state.correct&&!this.state.runing?this.clickbegin:this.clickend;
+        console.log(this.state.correct&&!this.state.runing,clickfunc)  
         return (
             
           <div class='algo-container'>
             <form  id='inputs' class = 'grid-container'>
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+            <button class = 'inner' onClick={this.clickbegin}>START</button><svg onClick={this.clickbegin} xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
          <circle cx="80" cy="80" r="70" stroke-linecap="round" />
  </svg>
             {flag&&<Alert/>}
+            {!flag&&<Success/>}
             <input  id='v0' class ="input-box"></input><  input  id='v1' class ="input-box"></input><input  id='v2' class ="input-box"></input><input  id='v3' class ="input-box"></input><input id='v4' class ="input-box"></input><input id='v5' class ="input-box"></input><input id='v6' class ="input-box"></input>
             <div class = 'cursor-container'><div class = 'pointer'></div></div>
             <div class='box-container'><Box  number='b0' value={this.state.n0} cssid="Head" cssidt='Btext'/><Box  number='b1' value={this.state.n1} cssid="Head" cssidt='Btext'/><Box  number='b2' value={this.state.n2} cssid="Head" cssidt='Btext'/><Box  number='b3' value={this.state.n3} cssid="Head" cssidt='Btext'/><Box  number='b4' value={this.state.n4} cssid="Head" cssidt='Btext'/><Box  number='b5' value={this.state.n5} cssid="Head" cssidt='Btext'/><Box  number='b6' value={this.state.n6} cssid="Head" cssidt='Btext'/></div>
             </form>
             <div class= 'tree-container'>
-            <button class='beginbut' onClick={this.clickbegin}>Start</button>
-            <button class='endbut' onClick={this.clickend}>Clear</button>
+            
             <Node  number='0' value={this.state.n0} cssid="Root" cssidt='Rtext'></Node>
             <Node  number='1' value={this.state.n1} cssid="Node1" cssidt='text1'/><Node number='2' value={this.state.n2} cssid="Node2" cssidt='text2'/>
             <Node number='3' value={this.state.n3} cssid="Node3" cssidt='text3'/><Node number='4' value={this.state.n4} cssid="Node4" cssidt='text4'/><Node number='5' value={this.state.n5} cssid="Node5" cssidt='text5'/><Node number='6' value={this.state.n6} cssid="Node6" cssidt='text6'/>

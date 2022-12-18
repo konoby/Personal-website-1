@@ -8,7 +8,7 @@ class YJQ extends React.Component{
         }
     };
     render(){
-        return (<header class='title'>YAO | JIAQI
+        return (<header class='title'>JIAQI | YAO
         </header>);
         
         

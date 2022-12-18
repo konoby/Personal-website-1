@@ -44,3 +44,6 @@
   .navbar ul li button:hover::after {
     transform: scale(1,1);
   }
+  .navbar ul li button:checked::after {
+    transform: scale(1,1);
+  }

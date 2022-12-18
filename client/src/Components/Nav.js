@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Styles/Nav.css'
 import Tree from './Tree'
-import Square from './Resume';
+import Resume from './Resume';
 class Navbar extends React.Component{
     constructor(props){
         super(props);
@@ -11,19 +11,38 @@ class Navbar extends React.Component{
             current_bar: 1
         };
     };
-clickalgo (){this.setState({current_bar: 1});
+clickalgo (){
+    
+    document.location.reload();
+
+    this.setState({current_bar: 1});
 }
-clickres (){this.setState({current_bar: 2});
+clickres (){
+    clearTimeout();
+
+    this.setState({current_bar: 2});
+    
 }
-clicksoa (){this.setState({current_bar: 2});
+clicksoa (){
+    clearTimeout();
+    this.setState({current_bar: 3});
 }
+componentDidMount(){
+   var navlist = document.getElementsByTagName("button");
+   console.log(navlist)
+    }
+
     render(){
         let toshow;
         if (this.state.current_bar===1){
             toshow = <Tree></Tree>
+            // document.getElementById("vis").style.transform = "scale(1,1)"
         }
         else if(this.state.current_bar===2){
-            toshow= <div>this is f</div>
+            toshow= <Resume/>
+        }
+        else if(this.state.current_bar===3){
+            toshow= <></>
         }
         else{
             toshow = <></>
@@ -31,10 +50,10 @@ clicksoa (){this.setState({current_bar: 2});
         return (<div><nav class="navbar">
         
         <ul>
-            <li><button onClick={this.clickalgo} >Algorithm</button></li>
-            <li><button onClick={this.clickres}>Resume</button></li>
-            <li><button>SOA exams</button></li>
-            <li><button>Contact</button></li>
+            <li><button id = "vis"onClick={this.clickalgo} >Heapsort Visualizer</button></li>
+            <li><button id = "res"onClick={this.clickres}>Resume</button></li>
+            <li><button id = "soa">SOA exams</button></li>
+            <li><button id = "con">Contact</button></li>
           </ul>
         </nav>
         {toshow}

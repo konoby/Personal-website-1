@@ -26,10 +26,10 @@
     position: relative;
     left:400px;
     top:200px;
-    /* opacity:0; */
+    opacity:0;
 }
 .Rtext{
-    
+    overflow: hidden;
 }
 .Node1 {
     justify-content: center;
@@ -43,7 +43,7 @@
     position: relative;
     left:330px;
     top: 240px;
-    /* opacity:0; */
+    opacity:0;
 }
 
 .Node1::before{
@@ -78,7 +78,7 @@ bottom:50px
     position: relative;
     left:490px;
     top: 160px;
-    /* opacity:0; */
+    opacity:0;
 }
 
 .Node2::before{
@@ -113,7 +113,7 @@ bottom:50px
     position: absolute;
     left:200px;
     top: 439px;
-    /* opacity:0; */
+    opacity:0;
 }
 .text3{
     
@@ -145,7 +145,7 @@ bottom:50px
     position: relative;
     left:616px;
     top: 200px;
-    /* opacity:0; */
+    opacity:0;
 }
 
 .Node6::before{
@@ -182,7 +182,7 @@ bottom:50px
     position: absolute;
     left:370px;
     top: 436px;
-    /* opacity:0; */
+    opacity:0;
 }
 
 .Node4::before{
@@ -217,7 +217,7 @@ bottom:50px
     position: absolute;
     left:439px;
     bottom: 280px;
-    /* opacity:0; */
+    opacity:0;
 }
 
 .Node5::before{

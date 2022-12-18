@@ -23,7 +23,7 @@ function Node(props){
 
 function Alert(props){
     return(
- <div class='alert'>PLZ input 6 numbers between 0 and 100</div>
+ <div class='alert'>PLZ enter 6 numbers between 0 and 100</div>
     );
 }
 function Success(props){
@@ -258,7 +258,7 @@ class Tree extends React.Component{
         return (
             
           <div class='algo-container'>
-            <form  id='inputs' class = 'grid-container'>
+            <form onSubmit={()=>{}} id='inputs' class = 'grid-container'>
             <button id = 'btn' class = 'inner' onClick={clickfunc}>START</button><svg onClick={clickfunc}  xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
          <circle cx="80" cy="80" r="70" stroke-linecap="round" />
  </svg>

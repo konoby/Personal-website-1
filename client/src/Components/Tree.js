@@ -94,7 +94,7 @@ class Tree extends React.Component{
     }
     iscorrect(id,num){
         // console.log(typeof num)
-        if (typeof num == 'number' && num<100 && num > 0){
+        if (typeof num == 'number' && num<100 && num > 0&& Number.isInteger(num)){
             document.getElementById(id).style.color = 'black'
         return true}
         else {

@@ -1,11 +1,13 @@
 .alert{
     color: red;
+    font-size: 20px;
     font-family:  Lucidatypewriter;
     position: relative;
     top: 30%;
     left:40%;
 }
 .success{
+    font-size: 20px;
     font-family:  Lucidatypewriter;
     color: rgb(0, 0, 0);
     position: relative;

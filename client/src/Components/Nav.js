@@ -2,6 +2,7 @@ import React from 'react';
 import '../Styles/Nav.css'
 import Tree from './Tree'
 import Resume from './Resume';
+import Soa from './SOA';
 class Navbar extends React.Component{
     constructor(props){
         super(props);
@@ -62,7 +63,7 @@ componentDidMount(){
             toshow= <Resume/>
         }
         else if(this.state.current_bar===3){
-            toshow= <div></div>
+            toshow= <Soa/>
         }
         else{
             toshow = <div></div>

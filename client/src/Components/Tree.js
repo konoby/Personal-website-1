@@ -23,7 +23,7 @@ function Node(props){
 
 function Alert(props){
     return(
- <div class='alert'>PLZ enter 6 numbers between 0 and 100</div>
+ <div class='alert'>PLZ enter 6 ingeters between 0 and 100</div>
     );
 }
 function Success(props){

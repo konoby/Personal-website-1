@@ -3,6 +3,7 @@ import '../Styles/Nav.css'
 import Tree from './Tree'
 import Resume from './Resume';
 import Soa from './SOA';
+import Con from './Contact';
 class Navbar extends React.Component{
     constructor(props){
         super(props);
@@ -66,7 +67,7 @@ componentDidMount(){
             toshow= <Soa/>
         }
         else{
-            toshow = <div></div>
+            toshow = <Con/>
         }
     
         return (<div><nav class="navbar">

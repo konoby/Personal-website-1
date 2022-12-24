@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  react:
+    image: reactapp:latest
+    container_name: myreactapp
+    build: 
+      target: development
+   
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./src:/app/src
+    
